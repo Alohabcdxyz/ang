@@ -1,0 +1,39 @@
+<div class="container">
+  <form #form="ngForm" (ngSubmit)="updateCategory()">
+    <div class="mb-3">
+      <label for="Id" class="form-label">ID</label>
+      <input
+        type="text"
+        class="form-control"
+        id="id"
+        name="id"
+        readonly
+        [(ngModel)]="categoryDetail.id"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="name" class="form-label">Tên Danh Mục</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        name="name"
+        [(ngModel)]="categoryDetail.name"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="categoryImageView" class="form-label">Ảnh Danh Mục</label>
+      <input
+        type="file"
+        class="form-control"
+        id="categoryImageView"
+        name="categoryImageView"
+        (change)="onFileSelected($event)"
+      />
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+    <button class="btn btn-danger" (click)="deleteCategory(categoryDetail.id)">
+      Delete
+    </button>
+  </form>
+</div>
