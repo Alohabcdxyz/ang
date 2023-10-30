@@ -1,0 +1,36 @@
+<div class="container">
+  <table
+    class="table table-bordered center-text"
+    *ngIf="category && category.length > 0"
+  >
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Image</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of category">
+        <td>{{ item.id }}</td>
+        <td>{{ item.name }}</td>
+        <td>
+          <img
+            style="height: 100px"
+            src="{{ 'data:image/jpg;base64,' + item.categoryImage }}"
+          />
+        </td>
+
+        <td style="text-align: center; vertical-align: middle">
+          <a routerLink="/category/edit/{{ item.id }}">
+            <img style="height: 30px" src="../../assets/image/edit.svg" />
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p *ngIf="!category || category.length <= 0" class="text-center">
+    Không thấy dữ liệu
+  </p>
+</div>
